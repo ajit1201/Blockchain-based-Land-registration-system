@@ -1,6 +1,3 @@
-
-
-
 async function checkConnection() {
 
   // checking Meta-Mask extension is added or not
@@ -47,8 +44,6 @@ async function checkConnection() {
 
 }
 
-
-
 async function fetchUserDetails() {
 
   let contractABI = JSON.parse(window.localStorage.Users_ContractABI);
@@ -84,8 +79,6 @@ async function fetchUserDetails() {
 
 }
 
-
-
 function toggleShowProperties() {
   document.getElementById("addProperty").style.display = "none";
   document.getElementById("propertiesTable").style.display = "block";
@@ -99,7 +92,6 @@ function toggleShowProperties() {
 
   fetchPropertiesOfOwner();
 }
-
 
 function toggleAddProperty() {
   document.getElementById("propertiesTable").style.display = "none";
@@ -117,7 +109,94 @@ function toggleAddProperty() {
 
 
 async function addProperty(event) {
+/*
+  notifyUser = document.getElementById("notifyUser");
+  notifyUser.style.display = "none";
+  let location = document.getElementById("location").value;
+  let revenueDeptId = document.getElementById("revenueDeptId").value;
+  let surveyNo = document.getElementById("suveyNumber").value;
+  let area = document.getElementById("area").value;
+  let contractABI = JSON.parse(window.localStorage.LandRegistry_ContractABI);
+  let contractAddress = window.localStorage.LandRegistry_ContractAddress;
+  let contract = new window.web3.eth.Contract(contractABI, contractAddress);
+  let accountUsedToLogin = window.localStorage["userAddress"];
 
+  const formData = new FormData();
+  try {
+    // Append the files and data to the FormData object
+    formData.append('location', location);
+    formData.append('revenueDeptId', revenueDeptId);
+    formData.append('surveyNo', surveyNo);
+    formData.append('area', area);
+    formData.append('contractABI', contractABI);
+    formData.append('contractAddress', contractAddress);
+    formData.append('contract', contract);
+    formData.append('accountUsedToLogin', accountUsedToLogin);
+
+    // Documents data to store in local mongo db 
+    propertyDocs = document.getElementById("registrationDoc").files[0];
+    owner = landAddedEvent["owner"];
+    propertyId = landAddedEvent["propertyId"];
+
+    // Append the files and data to the FormData object
+    formData.append('propertyDocs', propertyDocs);
+    formData.append('owner', owner);
+    formData.append('propertyId', propertyId);
+
+    // Send a POST request to the Flask server
+    fetch('/uploadPropertyDocs', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the Flask server
+        console.log(data);
+
+        if (data['status'] == 'success') {
+
+          closeTransactionLoading();
+          notifyUser.classList.add("alert-success");
+          notifyUser.innerText = `Land Added Successfully`;
+          notifyUser.style.display = "block";
+        } else {
+          closeTransactionLoading();
+          notifyUser.classList.add("alert-danger");
+          notifyUser.innerText = `Failed to Upload Documents`;
+          notifyUser.style.display = "block";
+
+        }
+
+      })
+      .catch(error => {
+        // Handle any errors that occur during the request
+        console.error(error);
+
+        closeTransactionLoading();
+        notifyUser.classList.add("alert-danger");
+        notifyUser.innerText = "Failed Uploading Documents";
+        notifyUser.style.display = "block";
+      });
+
+
+
+  }
+catch (error) {
+  console.log(error);
+  closeTransactionLoading();
+  reason = showError(error);
+  notifyUser.classList.add("alert-danger");
+  notifyUser.innerText = reason;
+  notifyUser.style.display = "block";
+
+}
+
+formData.append();
+
+  //take reference from admin.js and chatGPT
+*/
+  //old code
+  
   event.preventDefault();
   notifyUser = document.getElementById("notifyUser");
   notifyUser.style.display = "none";
@@ -130,8 +209,10 @@ async function addProperty(event) {
   let contract = new window.web3.eth.Contract(contractABI, contractAddress);
   let accountUsedToLogin = window.localStorage["userAddress"];
 
+  console.log(location)
   try {
     showTransactionLoading("Adding Your Land...")
+    /*
     landAddedEvent = await contract.methods.addLand(
       location,
       revenueDeptId,
@@ -143,20 +224,35 @@ async function addProperty(event) {
       function (tx) {
         return tx.events.LandAdded.returnValues;
       });
-
-    console.log(landAddedEvent["owner"] + " added with ID:" + landAddedEvent["propertyId"]);
+*/
+    //console.log(landAddedEvent["owner"] + " added with ID:" + landAddedEvent["propertyId"]);
     showTransactionLoading(`Uploading Documents...`);
     // Documents data to store in local mongo db 
     propertyDocs = document.getElementById("registrationDoc").files[0];
-    owner = landAddedEvent["owner"];
-    propertyId = landAddedEvent["propertyId"];
+    //owner = landAddedEvent["owner"];
+    //propertyId = landAddedEvent["propertyId"];
+    owner = accountUsedToLogin;
+    //the property id will be unique id generate once the admin approve the land addtion
+    // propertyId = "propertyID";
 
     // Create a new FormData object
     const formData = new FormData();
     // Append the files and data to the FormData object
     formData.append('propertyDocs', propertyDocs);
     formData.append('owner', owner);
-    formData.append('propertyId', propertyId);
+    // formData.append('propertyId', propertyId);
+
+    //appending some extra bit of information
+    // Append the files and data to the FormData object
+    
+    formData.append('location', location);
+    formData.append('revenueDeptId', revenueDeptId);
+    formData.append('surveyNo', surveyNo);
+    formData.append('area', area);
+    formData.append('contractABI', contractABI);
+    formData.append('contractAddress', contractAddress);
+    formData.append('contract', contract);
+    formData.append('accountUsedToLogin', accountUsedToLogin);
 
     // Send a POST request to the Flask server
     fetch('/uploadPropertyDocs', {
@@ -205,6 +301,7 @@ async function addProperty(event) {
     notifyUser.style.display = "block";
 
   }
+  
 }
 
 
@@ -337,15 +434,11 @@ async function makePropertyAvailableToSell(propertyId) {
 
       showTransactionLoading("Making available to sell...");
 
-      saleAddedEvent = await contract.methods.addPropertyOnSale(
-        propertyId,
-        price
-      ).send(
-        { from: accountUsedToLogin }
-      ).then(
-        function (tx) {
-          return tx.events.PropertyOnSale.returnValues;
-        });
+      saleAddedEvent = await contract.methods.addPropertyOnSale(propertyId, price).send(
+        { from: accountUsedToLogin }).then(
+          function (tx) {
+            return tx.events.PropertyOnSale.returnValues;
+          });
 
       console.log(saleAddedEvent["owner"] + " made available this property:"
         + saleAddedEvent["propertyId"] + " on sale id"
@@ -388,8 +481,6 @@ function closePopup() {
   const popup = document.querySelector('.pdf-popup');
   popup.style.display = 'none';
 }
-
-
 
 
 function showTransactionLoading(msg) {

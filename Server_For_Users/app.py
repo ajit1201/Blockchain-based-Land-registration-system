@@ -1,5 +1,7 @@
+from distutils import errors
 from flask import Flask, jsonify,render_template,request,Response,redirect
 from pymongo import MongoClient
+from pymongo.errors import PyMongoError
 import gridfs
 from web3 import Web3, HTTPProvider
 import json
@@ -54,21 +56,39 @@ def dashboard():
 
 
 
-@app.route('/uploadPropertyDocs', methods=['POST'])
+@app.route('/uploadPropertyDocs', methods=['GET', 'POST'])
 def upload():
     # Get the uploaded files and form data from the request
     registraionDocs = request.files['propertyDocs']
     owner = request.form['owner']
-    propertyId = request.form['propertyId']
-
+    # propertyId = request.form['propertyId']
+    # location = request.form['location']
+    revenueDeptId = request.form['revenueDeptId']
+    surveyNo = request.form['surveyNo']
+    area = request.form['area']
+    contractABI = request.form['contractABI']
+    contractAddress = request.form['contractAddress']
+    contract = request.form['contract']
+    accountUsedToLogin = request.form['accountUsedToLogin']
     # Do something with the uploaded files and form data
+    propertyId = "NOT_ASSIGN"
+    status = "Pending"
 
     try:
-        file_id = fs.put(registraionDocs, filename="%s_%s.pdf"%(owner,propertyId))
+        file_id = fs.put(registraionDocs, filename="%s_%s.pdf"%(owner, propertyId))
         rowId = propertyDocsTable.insert_one({
+                                            "Status": status,
                                             "Owner":owner,
                                             "Property_Id":propertyId,
-                                            "%s_%s.pdf"%(owner,propertyId):file_id
+                                            #"location": location,
+                                            "revenueDeptId": revenueDeptId,
+                                            "surveyNo": surveyNo,
+                                            "area": area,
+                                            "contractABI": contractABI,
+                                            "contractAddress": contractAddress,
+                                            "contract": contract,
+                                            "accountUsedToLogin": accountUsedToLogin,
+                                            "%s_%s.pdf"%(owner, propertyId):file_id
                                         }).inserted_id
 
     except errors.PyMongoError as e:
