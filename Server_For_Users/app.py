@@ -175,8 +175,6 @@ def logout():
 def availableToBuy():
     return render_template('availableToBuy.html')
 
-
-
 @app.route('/MySales')
 def MySales():
     return render_template('mySales.html')
