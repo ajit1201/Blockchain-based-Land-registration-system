@@ -122,11 +122,6 @@ def get_pdf(propertyId):
   except Exception as e:
     return jsonify({"status":0,"Reason":str(e)})
 
-
-
-
-
-
 @app.route('/fetchContractDetails')
 def fetchContractDetails():
     usersContract = json.loads(
@@ -202,7 +197,6 @@ def adminLogin():
 
     else:
         return jsonify({'status':0,"msg":'GET Not allowed'})
-
 
 
 

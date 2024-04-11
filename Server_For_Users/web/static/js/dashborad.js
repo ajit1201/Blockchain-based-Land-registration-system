@@ -1,4 +1,72 @@
+let UserName = "j";
+//pdf genrating function
+async function downloadPDF(propertynumber) {
+  let contractABI = JSON.parse(window.localStorage.LandRegistry_ContractABI); ``
+  let contractAddress = window.localStorage.LandRegistry_ContractAddress;
+  let contract = new window.web3.eth.Contract(contractABI, contractAddress);
+  let accountUsedToLogin = window.localStorage["userAddress"];
 
+  try {
+
+    properties = await contract.methods.getPropertiesOfOwner(
+      accountUsedToLogin
+    ).call()
+      .then(function (value) {
+        return value;
+      });
+    console.log(properties);
+    
+    console.log(properties)
+    let propertyId = properties[propertynumber]["propertyId"]
+    let locationId = properties[propertynumber]["locationId"]
+    let revenueDepartmentId = properties[propertynumber]["revenueDepartmentId"]
+    let surveyNumber = properties[propertynumber]["surveyNumber"]
+    let area = properties[propertynumber]["area"]
+    let Varification = handleStateOfProperty(properties[propertynumber])
+
+    // Create a new FormData object
+    var formData = new FormData();
+    // Append the filename to the form data
+    formData.append('name', UserName);
+    formData.append('propertyId', propertyId);
+    formData.append('locationId', locationId);
+    formData.append('revenueDepartmentId', revenueDepartmentId)
+    formData.append('surveyNumber', surveyNumber);
+    formData.append('area', area);
+    formData.append('Varification', Varification)
+
+    // Send a POST request to Flask route '/download_pdf' with the form data
+    fetch('/download_pdf', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.blob()) // Get the response as a blob
+      .then(blob => {
+        // Create a blob URL for the returned PDF blob
+        var url = window.URL.createObjectURL(blob);
+        // Create a link element
+        var a = document.createElement('a');
+        // Set the href attribute of the link to the blob URL
+        a.href = url;
+        // Set the download attribute to specify the filename
+        a.download = 'myfile.pdf';
+        // Append the link to the document body
+        document.body.appendChild(a);
+        // Click the link to trigger the download
+        a.click();
+        // Remove the link from the document body
+        document.body.removeChild(a);
+        // Revoke the blob URL to free up memory
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
 
 
 async function checkConnection() {
@@ -66,9 +134,14 @@ async function fetchUserDetails() {
       });
 
 
+
+
   if (userDetails["userID"] == accountUsedToLogin) {
 
     document.getElementById("nameOfUser").innerText = userDetails["firstName"];
+    UserName = userDetails["firstName"] + " " + userDetails["lastName"]
+    console.log(UserName);
+    console.log(userDetails)
 
     // document.getElementById("lname").innerText = userDetails["lastName"];
 
@@ -231,6 +304,8 @@ async function fetchPropertiesOfOwner() {
     let tableRow = "";
 
     for (let i = 0; i < properties.length; i++) {
+      console.log(properties[i])
+      propertyDetail = [properties[i]["propertyId"], properties[i]["locationId"], properties[i]["revenueDepartmentId"], properties[i]["surveyNumber"], properties[i]["area"], 12];
       tableRow = "<tr>";
       tableRow += "<td>" + (i + 1) + "</td>";
       tableRow += "<td>" + properties[i]["propertyId"] + "</td>";
@@ -243,7 +318,7 @@ async function fetchPropertiesOfOwner() {
       tableRow += "<td>" + handleStateOfProperty(properties[i]) + "</td>";
 
       tableRow += "<td>" + showSoldButton(properties[i]) + "</td>";
-
+      tableRow += "<td> <button class='pdfButton' onclick=downloadPDF(" + i + ")>Download Certificate</button></td>";
       tableRow += "</tr>";
 
       tableBodyCode += tableRow;
