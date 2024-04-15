@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66.002" height="42" viewBox="0 0 66.002 42">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.015" y1="0.477" x2="0.988" y2="0.463" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#19b0dc"/>
+      <stop offset="1" stop-color="#020b50"/>
+    </linearGradient>
+  </defs>
+  <g id="Document_Collection" data-name="Document Collection" transform="translate(1.002 1)">
+    <path id="Path_1627" data-name="Path 1627" d="M1890,1252.667c0-4.323-2.8-6.667-6.4-6.667h-51.2c-6.454,0-6.4,6.667-6.4,6.667v26.667s-.157,6.667,6.4,6.667h24.766" transform="translate(-1826 -1246)" fill="none" stroke="#020b50" stroke-linecap="round" stroke-width="2"/>
+    <rect id="Rectangle_3303" data-name="Rectangle 3303" width="30" height="30" rx="2" transform="translate(34 9)" fill="url(#linear-gradient)"/>
+    <g id="Group_7939" data-name="Group 7939" transform="translate(42 15)">
+      <path id="Path_1523" data-name="Path 1523" d="M5,20.732H19.6V18.646H5ZM5,10.3H9.172V16.56H15.43V10.3H19.6L12.3,3Z" transform="translate(-5 -3)" fill="#fff"/>
+    </g>
+    <g id="Group_8124" data-name="Group 8124" transform="translate(5.326 4.378)">
+      <g id="Group_5775" data-name="Group 5775">
+        <path id="Path_1603" data-name="Path 1603" d="M-794,1435v31.034h24.48v-21.548l-9.838-9.486Z" transform="translate(794 -1435)" fill="#fff" stroke="#086396" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Polygon_29" data-name="Polygon 29" d="M6.351.177a.25.25,0,0,1,.354,0L12.628,6.1a.25.25,0,0,1-.177.427H.6A.25.25,0,0,1,.427,6.1Z" transform="translate(18.375 15.134) rotate(-135)" fill="#086396"/>
+      </g>
+      <rect id="Rectangle_3483" data-name="Rectangle 3483" width="11.947" height="1.086" transform="translate(2.744 13.448)" fill="#19b0dc"/>
+      <rect id="Rectangle_3484" data-name="Rectangle 3484" width="11.947" height="1.086" transform="translate(2.744 15.62)" fill="#19b0dc"/>
+      <rect id="Rectangle_3485" data-name="Rectangle 3485" width="16.292" height="1.086" transform="translate(2.744 17.793)" fill="#19b0dc"/>
+      <rect id="Rectangle_3486" data-name="Rectangle 3486" width="16.292" height="1.086" transform="translate(2.744 19.965)" fill="#19b0dc"/>
+      <rect id="Rectangle_3487" data-name="Rectangle 3487" width="16.292" height="1.086" transform="translate(2.744 22.137)" fill="#19b0dc"/>
+      <rect id="Rectangle_3488" data-name="Rectangle 3488" width="16.292" height="1.086" transform="translate(2.744 24.309)" fill="#19b0dc"/>
+      <path id="Icon_awesome-user" data-name="Icon awesome-user" d="M3.267,3.734A1.867,1.867,0,1,0,1.4,1.867,1.867,1.867,0,0,0,3.267,3.734ZM4.574,4.2H4.33A2.539,2.539,0,0,1,2.2,4.2H1.96A1.961,1.961,0,0,0,0,6.161v.607a.7.7,0,0,0,.7.7H5.834a.7.7,0,0,0,.7-.7V6.161A1.961,1.961,0,0,0,4.574,4.2Z" transform="translate(2.844 3.339)" fill="#19b0dc"/>
+    </g>
+  </g>
+</svg>

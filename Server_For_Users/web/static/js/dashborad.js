@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 let UserName = "j";
 //pdf genrating function
 async function downloadPDF(propertynumber) {
@@ -51,7 +50,8 @@ async function downloadPDF(propertynumber) {
         // Set the href attribute of the link to the blob URL
         a.href = url;
         // Set the download attribute to specify the filename
-        a.download = 'myfile.pdf';
+        let file_name = "PrtCertificate" + propertyId + ".pdf"
+        a.download = file_name;
         // Append the link to the document body
         document.body.appendChild(a);
         // Click the link to trigger the download
@@ -71,7 +71,7 @@ async function downloadPDF(propertynumber) {
 }
 
 
->>>>>>> certificate
+
 async function checkConnection() {
 
   // checking Meta-Mask extension is added or not

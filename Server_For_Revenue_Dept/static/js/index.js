@@ -39,7 +39,7 @@ async function connectToBlockchain() {
                                 `;
 
       
-      document.getElementById("connectToBlockchainDiv").style.display = "none";
+      document.getElementById("root").style.display = "none";
       document.getElementById("passwordDiv").style.display = "block";
 
       closeTransactionLoading();
