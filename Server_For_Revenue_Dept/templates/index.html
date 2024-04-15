@@ -2,19 +2,12 @@
 <html lang="en" id="html" class="">
 <style type="text/css" id="dark-mode-сustom-style"></style>
 <style type="text/css" id="dark-mode-theme-changer-style"></style>
-
 <head>
-
   <title>Revenue Dept</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-
-
   <script src="{{ url_for('static', filename='js/contractsDetails.js') }}"></script>
   <script src="{{ url_for('static', filename='js/web3.min.js') }}"></script>
-
   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-
-
   <!-- bootsrarp -->
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
   <script src="{{ url_for('static', filename='bootstrap/jquery-3.3.1.slim.min.js') }}"></script>
@@ -261,44 +254,13 @@
     }
   </style>
 </head>
-
-<!-- <body>
-
-  <header>
-      <div>
-          <h1> Welcome To Revenue Department Portal</h1>
-      </div>
-  </header>
-
-  <div class="alert " role="alert" id="notifyUser">
-  </div>
-
-  <div id="connectToBlockchainDiv" style="display: block;">
-      <h2> Connect Your Wallet </h2>
-      <button onclick="connectToBlockchain()"> Connect </button>
-  </div>
-
-  <br><br> -->
-
-
-
-  <!-- </div>
-
-  <div id="loadingDiv" style="display: none;">
-      <span id="loadingText"> Connecting to Wallet ... </span>
-      <div id="loading" class="spinner-border text-primary" role="status">
-          <span class="sr-only"></span>
-      </div>
-  </div>
-  </body> -->
-
 <body>
 
-    <div id="loadingDiv" style="display: none;">
-      <span id="loadingText"> Connecting to Wallet ... </span>
-      <div id="loading" class="spinner-border text-primary" role="status">
-          <span class="sr-only"></span>
-      </div>
+  <div id="loadingDiv" style="display: none;">
+    <span id="loadingText"> Connecting to Wallet ... </span>
+    <div id="loading" class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
   </div>
 
   <div id="passwordDiv" style="display: none;">
@@ -306,905 +268,11 @@
     <input type="text" placeholder="Enter Password" value="12345678" id="password">
     <br>
     <button onclick="login()"> Login </button>
-    </div>
-  <div class="alert " role="alert" id="notifyUser"></div>
-    <div id="root">
-      <div dir="ltr">
-        <div class="ltr">
-          <header class="header">
-            <div class="header__logos">
-              <center>
-                <div class="header__logo-container--center">Blockchain Based Land Registration System</div>
-              </center>
-            </div>
-            <div class="header__bar"></div>
-          </header>
-
-        </div>
-        <section class="login-section">
-          <div class="login-section__container">
-            <div class="login-section__text">
-              <p class="login-section__main-heading">Welcome to <span
-                  class="login-section__main-heading--bold">LandBlock</span></p>
-              <p class="login-section__desc"> Click on <b class="login-section__desc--bold">Login </b>button to explore
-                online Blockchain Based Land Registration System. &amp; This project is build with innovation and
-                dedicated work by Information Iechnology student for their major project in final year.</p>
-            </div>
-            <!-- <div class="login-section__card" style="padding: 12px;"><img src="./resource/blockchain.png" -->
-            <div class="login-section__card" style="padding: 12px;"><img src="{{ url_for('static', filename='resource/blockchain.png') }}"
-                style="height: 200px; width: 200px;" alt="biometrics icon">
-              <div class="login-section__card-btn"><button type="button" onclick="connectToBlockchain()"
-                  class="button_btn__HeAxz"
-                  style="background-image: linear-gradient(to right, rgb(2, 13, 81), rgb(25, 176, 220)); color: white; font-weight: bold; height: 42px;">Login</button>
-                <p class="login-section__card-desc" style="
-                  font-size: 12px;
-                  padding: 0;
-                  margin: 0;
-              ">Login with MetaMask or blockchain Account</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="unauthenticated-page">
-          <section class="ltr">
-            <div class="services__section-separation-description p-section-description">Benefits of secure Blockchain
-              Based Land Registration System</div>
-            <div class="services__services-container">
-              <div class="service-card">
-                <div class="service-card__service-container">
-                  <div class="service-card__info-section">
-                    <!-- <div class="service-card__service-logo"><img src="./resource/DocumentUpdate.svg" alt="Service Icon" -->
-                    <div class="service-card__service-logo"><img src="{{ url_for('static', filename='resource/DocumentUpdate.svg') }}" alt="Service Icon"
-                        style="height: inherit;"></div>
-                    <div class="service-card__info-text">
-                      <div class="service-card__label">Digital Document</div>
-                      <div class="service-card__description">
-                        <div>No need to maintain physical documents and be free from the tension of loss or damage.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="service-card">
-                <div class="service-card__service-container">
-                  <div class="service-card__info-section">
-                    <div class="service-card__service-logo"><img src="{{ url_for('static', filename='resource/Download.svg') }}" alt="Service Icon"
-                        style="height: inherit;"></div>
-                    <div class="service-card__info-text">
-                      <div class="service-card__label">Download Certificate</div>
-                      <div class="service-card__description">Get Secure, signed and authenticated land ownership
-                        certificate online.</div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="service-card">
-                <div class="service-card__service-container">
-                  <div class="service-card__info-section">
-                    <div class="service-card__service-logo"><img src="{{ url_for('static', filename='resource/BookAppointmentIcon.svg') }}"
-                        alt="Service Icon" style="height: inherit;"></div>
-                    <div class="service-card__info-text">
-                      <div class="service-card__label">24X7 Service</div>
-                      <div class="service-card__description">Portal will be working 24X7.
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="service-card">
-                <div class="service-card__service-container">
-                  <div class="service-card__info-section">
-                    <div class="service-card__service-logo"><img src="{{ url_for('static', filename='resource/Secure.svg') }}" alt="Service Icon"
-                        style="height: inherit;"></div>
-                    <div class="service-card__info-text">
-                      <div class="service-card__label">Verified Land and User</div>
-                      <div class="service-card__description">Fully Varified Document</div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </div>
-    </div>
-</body>
-<!--  -->
-
-<!--   
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#000000">
-  <link rel="stylesheet" href="./resource/style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com/">
-  <link href="./resource/css2" rel="stylesheet">
-
-  <title>Blockchain Based Land Registration System</title>
-  <style>
-    body {
-      padding-right: 0 !important
-    }
-  </style>
-  <link href="./resource/main.f3670593.css" rel="stylesheet">
-  <style>
-    .gradient-button-container {
-      display: inline-block;
-      height: 40px;
-
-
-    }
-
-    .gradient-button {
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      outline: none;
-      transition: all 0.1s ease-in;
-      font-family: inherit;
-      cursor: pointer;
-    }
-
-    .filled {
-      border-radius: 5px;
-      border: none;
-      color: rgb(255, 255, 255);
-    }
-
-    .filled:enabled {
-      background-image: linear-gradient(to right, #020D51, #19B0DC);
-
-      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.404); */
-    }
-
-    /* .gradient-button:hover:enabled {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.404);
-}
-
-.gradient-button:active:enabled {
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.404);;
-} */
-
-    .filled:disabled {
-      background-color: #B5B1B1;
-    }
-
-    .not-filled {
-      border-radius: 5px;
-      border-image-slice: 1;
-      border: 3px solid transparent;
-
-      background-color: #FFFF;
-      color: #086396;
-
-    }
-
-    .not-filled:enabled {
-      background:
-        linear-gradient(#FFFF, #FFFF) padding-box,
-        linear-gradient(to right, #020D51, #19B0DC) border-box;
-    }
-
-    .not-filled:disabled {
-      border-color: #B5B1B1;
-      color: #B5B1B1;
-    }
-  </style>
-  <style>
-    label {
-      -webkit-perspective: 1000px;
-      perspective: 1000px;
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-    }
-
-    .card {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-      -webkit-transition: all 600ms;
-      transition: all 600ms;
-      z-index: 20;
-    }
-
-    .card div {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      left: 0%;
-      top: 0%;
-      text-align: center;
-      line-height: 200px;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-radius: 2px;
-    }
-
-    .card .back {
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
-    }
-
-    input {
-      display: none;
-    }
-
-    :checked+.card {
-      transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-    }
-  </style>
-  <style>
-    /*!
- * 
- *   react-simple-keyboard v3.7.94
- *   https://github.com/hodgef/react-simple-keyboard
- *
- *   Copyright (c) Francisco Hodge (https://github.com/hodgef) and project contributors.
- *
- *   This source code is licensed under the MIT license found in the
- *   LICENSE file in the root directory of this source tree.
- *
- */
-    /*!
- * 
- *   simple-keyboard v3.7.65
- *   https://github.com/hodgef/simple-keyboard
- *
- *   Copyright (c) Francisco Hodge (https://github.com/hodgef) and project contributors.
- *
- *   This source code is licensed under the MIT license found in the
- *   LICENSE file in the root directory of this source tree.
- *
- */
-    .hg-theme-default {
-      background-color: #ececec;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-      overflow: hidden;
-      padding: 5px;
-      touch-action: manipulation;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-      width: 100%
-    }
-
-    .hg-theme-default .hg-button span {
-      pointer-events: none
-    }
-
-    .hg-theme-default button.hg-button {
-      border-width: 0;
-      font-size: inherit;
-      outline: 0
-    }
-
-    .hg-theme-default .hg-button {
-      display: inline-block;
-      flex-grow: 1
-    }
-
-    .hg-theme-default .hg-row {
-      display: flex
-    }
-
-    .hg-theme-default .hg-row:not(:last-child) {
-      margin-bottom: 5px
-    }
-
-    .hg-theme-default .hg-row .hg-button-container,
-    .hg-theme-default .hg-row .hg-button:not(:last-child) {
-      margin-right: 5px
-    }
-
-    .hg-theme-default .hg-row>div:last-child {
-      margin-right: 0
-    }
-
-    .hg-theme-default .hg-row .hg-button-container {
-      display: flex
-    }
-
-    .hg-theme-default .hg-button {
-      align-items: center;
-      background: #fff;
-      border-bottom: 1px solid #b5b5b5;
-      border-radius: 5px;
-      box-shadow: 0 0 3px -1px rgba(0, 0, 0, .3);
-      box-sizing: border-box;
-      cursor: pointer;
-      display: flex;
-      height: 40px;
-      justify-content: center;
-      padding: 5px;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn {
-      width: 20px
-    }
-
-    .hg-theme-default .hg-button.hg-activeButton {
-      background: #efefef
-    }
-
-    .hg-theme-default.hg-layout-numeric .hg-button {
-      align-items: center;
-      display: flex;
-      height: 60px;
-      justify-content: center;
-      width: 33.3%
-    }
-
-    .hg-theme-default .hg-button.hg-button-numpadadd,
-    .hg-theme-default .hg-button.hg-button-numpadenter {
-      height: 85px
-    }
-
-    .hg-theme-default .hg-button.hg-button-numpad0 {
-      width: 105px
-    }
-
-    .hg-theme-default .hg-button.hg-button-com {
-      max-width: 85px
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn.hg-button-at {
-      max-width: 45px
-    }
-
-    .hg-theme-default .hg-button.hg-selectedButton {
-      background: rgba(5, 25, 70, .53);
-      color: #fff
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn[data-skbtn=".com"] {
-      max-width: 82px
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn[data-skbtn="@"] {
-      max-width: 60px
-    }
-
-    .hg-candidate-box {
-      background: #ececec;
-      border-bottom: 2px solid #b5b5b5;
-      border-radius: 5px;
-      display: inline-flex;
-      margin-top: -10px;
-      max-width: 272px;
-      position: absolute;
-      transform: translateY(-100%);
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none
-    }
-
-    ul.hg-candidate-box-list {
-      display: flex;
-      flex: 1;
-      list-style: none;
-      margin: 0;
-      padding: 0
-    }
-
-    li.hg-candidate-box-list-item {
-      align-items: center;
-      display: flex;
-      height: 40px;
-      justify-content: center;
-      width: 40px
-    }
-
-    li.hg-candidate-box-list-item:hover {
-      background: rgba(0, 0, 0, .03);
-      cursor: pointer
-    }
-
-    li.hg-candidate-box-list-item:active {
-      background: rgba(0, 0, 0, .1)
-    }
-
-    .hg-candidate-box-prev:before {
-      content: "◄"
-    }
-
-    .hg-candidate-box-next:before {
-      content: "►"
-    }
-
-    .hg-candidate-box-next,
-    .hg-candidate-box-prev {
-      align-items: center;
-      color: #969696;
-      cursor: pointer;
-      display: flex;
-      padding: 0 10px
-    }
-
-    .hg-candidate-box-next {
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px
-    }
-
-    .hg-candidate-box-prev {
-      border-bottom-left-radius: 5px;
-      border-top-left-radius: 5px
-    }
-
-    .hg-candidate-box-btn-active {
-      color: #444
-    }
-  </style>
-  <style>
-    .hg-theme-default {
-      background-color: white;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue,
-        Helvetica, Arial, Lucida Grande, sans-serif;
-      overflow: hidden;
-      padding: 5px;
-      touch-action: manipulation;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      width: 100%;
-      border: solid 1px grey;
-      margin-top: 5px;
-    }
-
-    @media screen and (max-width: 460px) {
-      .hg-theme-default {
-        overflow: scroll;
-      }
-    }
-
-    .hg-theme-default .hg-button span {
-      pointer-events: none;
-    }
-
-    .hg-theme-default button.hg-button {
-      border-width: 0;
-      font-size: inherit;
-      outline: 0;
-    }
-
-    .hg-theme-default .hg-button {
-      display: inline-block;
-      flex-grow: 1;
-    }
-
-    .hg-theme-default .hg-row {
-      display: flex;
-    }
-
-    .hg-theme-default .hg-row:not(:last-child) {
-      margin-bottom: 5px;
-    }
-
-    .hg-theme-default .hg-row .hg-button:not(:last-child) {
-      margin-right: 5px;
-    }
-
-    .hg-theme-default .hg-row .hg-button-container {
-      margin-right: 5px;
-    }
-
-    .hg-theme-default .hg-row>div:last-child {
-      margin-right: 0;
-    }
-
-    .hg-theme-default .hg-row .hg-button-container {
-      display: flex;
-    }
-
-    .hg-theme-default .hg-button {
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      align-items: center;
-      /* background: #086396; */
-      border-bottom: 1px solid #b5b5b5;
-      border-radius: 6px;
-      border: 2px solid #086396;
-      box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.3);
-      box-sizing: border-box;
-      cursor: pointer;
-      display: flex;
-      height: 40px;
-      justify-content: center;
-      padding: 5px;
-      color: #086396;
-    }
-
-    .hg-theme-default .hg-button:hover {
-      background: #086396;
-      color: #fff;
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn {
-      width: 20px;
-    }
-
-    .hg-theme-default .hg-button.hg-activeButton {
-      background: #379cd6;
-    }
-
-    .hg-theme-default.hg-layout-numeric .hg-button {
-      align-items: center;
-      display: flex;
-      height: 60px;
-      justify-content: center;
-      width: 33.3%;
-    }
-
-    .hg-theme-default .hg-button.hg-button-numpadadd,
-    .hg-theme-default .hg-button.hg-button-numpadenter {
-      height: 85px;
-    }
-
-    .hg-theme-default .hg-button.hg-button-numpad0 {
-      width: 105px;
-    }
-
-    .hg-theme-default .hg-button.hg-button-com {
-      max-width: 85px;
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn.hg-button-at {
-      max-width: 45px;
-    }
-
-    .hg-theme-default .hg-button.hg-selectedButton {
-      background: rgba(5, 25, 70, 0.53);
-      color: #fff;
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn[data-skbtn=".com"] {
-      max-width: 82px;
-    }
-
-    .hg-theme-default .hg-button.hg-standardBtn[data-skbtn="@"] {
-      max-width: 60px;
-    }
-
-    .hg-candidate-box {
-      background: #ececec;
-      border-bottom: 2px solid #b5b5b5;
-      border-radius: 5px;
-      display: inline-flex;
-      margin-top: -10px;
-      max-width: 272px;
-      position: absolute;
-      transform: translateY(-100%);
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    ul.hg-candidate-box-list {
-      display: flex;
-      flex: 1;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    li.hg-candidate-box-list-item {
-      align-items: center;
-      display: flex;
-      height: 40px;
-      justify-content: center;
-      width: 40px;
-    }
-
-    li.hg-candidate-box-list-item:hover {
-      background: rgba(0, 0, 0, 0.03);
-      cursor: pointer;
-    }
-
-    li.hg-candidate-box-list-item:active {
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    .hg-candidate-box-prev:before {
-      content: "◄";
-    }
-
-    .hg-candidate-box-next:before {
-      content: "►";
-    }
-
-    .hg-candidate-box-next,
-    .hg-candidate-box-prev {
-      align-items: center;
-      background: #d0d0d0;
-      color: #969696;
-      cursor: pointer;
-      display: flex;
-      padding: 0 10px;
-    }
-
-    .hg-candidate-box-next {
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-
-    .hg-candidate-box-prev {
-      border-bottom-left-radius: 5px;
-      border-top-left-radius: 5px;
-    }
-
-    .hg-candidate-box-btn-active {
-      color: #444;
-    }
-  </style>
-  <style>
-    date-input-polyfill {
-      width: auto;
-      min-width: 260px;
-      height: auto;
-      background-color: #fff;
-      -webkit-box-shadow: 0 0 5px 2px rgba(128, 128, 128, .81);
-      -moz-box-shadow: 0 0 5px 2px rgba(128, 128, 128, .81);
-      box-shadow: 0 0 5px 2px rgba(128, 128, 128, .81);
-      position: absolute;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #000
-    }
-
-    date-input-polyfill .date-select-header {
-      position: relative;
-      width: 100%;
-      height: 40px;
-      background-color: #fff;
-      text-align: center;
-      line-height: 40px
-    }
-
-    date-input-polyfill .date-select-header .date-header-button {
-      padding: 5px 25px 5px 5px;
-      border: solid 1px #a8a3a3;
-      background-color: #fff;
-      min-width: 150px;
-      width: auto;
-      max-width: 180px;
-      height: 28px;
-      border-radius: 5px;
-      cursor: pointer;
-      position: relative;
-      line-height: 15px;
-      font-size: 13px
-    }
-
-    date-input-polyfill .date-select-header .date-header-button.active:after {
-      content: "<";
-      display: inline-block;
-      position: absolute;
-      right: 10px;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
-      font-size: 18px;
-      top: 6px
-    }
-
-    date-input-polyfill .date-select-header .date-header-button.inactive:after {
-      content: "<";
-      display: inline-block;
-      position: absolute;
-      right: 10px;
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-      font-size: 18px;
-      top: 6px
-    }
-
-    date-input-polyfill .day-matrix-wrapper {
-      position: relative;
-      background-color: #fff;
-      width: 100%;
-      height: auto;
-      padding: 0 10px 10px 10px;
-      box-sizing: border-box
-    }
-
-    date-input-polyfill .day-matrix-wrapper table {
-      width: 100%;
-      text-align: center;
-      font-size: 18px;
-      padding: 0;
-      line-height: 24px;
-      border-collapse: separate
-    }
-
-    date-input-polyfill .day-matrix-wrapper table thead {
-      color: #b4b4b4;
-      pointer-events: none
-    }
-
-    date-input-polyfill .day-matrix-wrapper table thead th {
-      border: none;
-      padding: 0;
-      text-align: center;
-      font-size: 18px
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td {
-      border: solid 1px #fff;
-      padding: 0;
-      text-align: center;
-      font-size: 18px;
-      width: 30px
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.current-day {
-      border: solid 1px #cce5f3;
-      background-color: #cce5f3
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.current-day.disabled {
-      border: solid 1px #fff
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td[data-selected] {
-      font-weight: bold;
-      border: solid 1px #a2d8f6;
-      background-color: #a2d8f6
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td[data-selected]:hover {
-      border: solid 1px #a2d8f6;
-      background-color: #a2d8f6
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.prev-month,
-    date-input-polyfill .day-matrix-wrapper table tbody td.next-month {
-      color: #d3d3d3
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.prev-month:hover,
-    date-input-polyfill .day-matrix-wrapper table tbody td.next-month:hover {
-      color: #fff
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.disabled {
-      background-color: gray;
-      color: #d3d3d3
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td.disabled:hover {
-      background-color: gray;
-      border: solid 1px #fff;
-      color: #d3d3d3
-    }
-
-    date-input-polyfill .day-matrix-wrapper table tbody td:hover {
-      cursor: pointer;
-      background-color: #d3d3d3;
-      border: solid 1px #d3d3d3
-    }
-
-    date-input-polyfill .date-select-dropdown {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      top: 40px;
-      background-color: #fff;
-      display: none
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container {
-      position: relative;
-      float: left;
-      width: 100%;
-      height: auto;
-      padding: 5px 60px 5px 60px
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .up,
-    date-input-polyfill .date-select-dropdown .select-container .down {
-      width: 100%;
-      height: 25px;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0);
-      cursor: pointer;
-      line-height: 22px;
-      float: left;
-      border: none;
-      outline: none;
-      color: #7d7d7d;
-      position: relative
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .up:after,
-    date-input-polyfill .date-select-dropdown .select-container .down:after {
-      content: "<";
-      position: absolute;
-      top: 0;
-      left: 19px;
-      font-size: 20px;
-      display: inline-block;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg)
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .down:after {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg)
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .select-wrapper {
-      float: left;
-      width: 50px;
-      height: 175px;
-      position: relative;
-      margin: 10px
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .select-wrapper .option-wrapper {
-      float: left;
-      width: 100%;
-      height: auto
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .select-wrapper .option-wrapper .option {
-      height: 25px;
-      border-radius: 5px;
-      text-align: center;
-      float: left;
-      width: 100%;
-      line-height: 25px
-    }
-
-    date-input-polyfill .date-select-dropdown .select-container .select-wrapper .option-wrapper .option:nth-child(3) {
-      background-color: #d3d3d3
-    }
-
-    date-input-polyfill[data-open=false] {
-      visibility: hidden;
-      z-index: -100 !important;
-      top: 0
-    }
-
-    date-input-polyfill[data-open=true] {
-      visibility: visible
-    }
-  </style>
-</head>
-
-<body>
-  <div id="loadingDiv" style="display: none;">
-    Connecting to Wallet ...
-    <div id="loading" class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
   </div>
+
+  <div class="alert " role="alert" id="notifyUser"></div>
   <div id="root">
     <div dir="ltr">
-      <div class="Toastify"></div>
       <div class="ltr">
         <header class="header">
           <div class="header__logos">
@@ -1214,32 +282,29 @@
           </div>
           <div class="header__bar"></div>
         </header>
+
       </div>
       <section class="login-section">
         <div class="login-section__container">
           <div class="login-section__text">
-            <p class="login-section__main-heading" style="
-            color: #fff;
-    font-size: 4rem;
-    line-height: 1;
-    margin-bottom: 2px;
-    padding: 0 0px;">Welcome to <span class="login-section__main-heading--bold" style="
-                color: #fff;
-    font-size: 5rem;
-    line-height: 1;
-    margin-bottom: 2px;
-    padding: 0px 0px;
-    font-weight: 600;
-                ">LandBlock</span></p>
+            <p class="login-section__main-heading">Welcome to <span
+                class="login-section__main-heading--bold">LandBlock</span></p>
             <p class="login-section__desc"> Click on <b class="login-section__desc--bold">Login </b>button to explore
               online Blockchain Based Land Registration System. &amp; This project is build with innovation and
               dedicated work by Information Iechnology student for their major project in final year.</p>
           </div>
-          <div class="login-section__card"><img src="./resource/blockchain.png" alt="biometrics icon">
-            <div class="login-section__card-btn"><button onclick="connectToBlockchain()" type="button"
+          <!-- <div class="login-section__card" style="padding: 12px;"><img src="./resource/blockchain.png" -->
+          <div class="login-section__card" style="padding: 12px;"><img
+              src="{{ url_for('static', filename='resource/blockchain.png') }}" style="height: 200px; width: 200px;"
+              alt="biometrics icon">
+            <div class="login-section__card-btn"><button type="button" onclick="connectToBlockchain()"
                 class="button_btn__HeAxz"
                 style="background-image: linear-gradient(to right, rgb(2, 13, 81), rgb(25, 176, 220)); color: white; font-weight: bold; height: 42px;">Login</button>
-              <p class="login-section__card-desc">Login with MetaMask or blockchain Account</p>
+              <p class="login-section__card-desc" style="
+                  font-size: 12px;
+                  padding: 0;
+                  margin: 0;
+              ">Login with MetaMask or blockchain Account</p>
             </div>
           </div>
         </div>
@@ -1252,13 +317,15 @@
             <div class="service-card">
               <div class="service-card__service-container">
                 <div class="service-card__info-section">
+                  <!-- <div class="service-card__service-logo"><img src="./resource/DocumentUpdate.svg" alt="Service Icon" -->
                   <div class="service-card__service-logo"><img
-                      src="./resource/DocumentUpdate.svg" alt="Service Icon"
+                      src="{{ url_for('static', filename='resource/DocumentUpdate.svg') }}" alt="Service Icon"
                       style="height: inherit;"></div>
                   <div class="service-card__info-text">
                     <div class="service-card__label">Digital Document</div>
                     <div class="service-card__description">
-                      <div>No need to maintain physical documents and be free from the tension of loss or damage.</div>
+                      <div>No need to maintain physical documents and be free from the tension of loss or damage.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1269,7 +336,7 @@
               <div class="service-card__service-container">
                 <div class="service-card__info-section">
                   <div class="service-card__service-logo"><img
-                      src="./resource/Download.svg" alt="Service Icon"
+                      src="{{ url_for('static', filename='resource/Download.svg') }}" alt="Service Icon"
                       style="height: inherit;"></div>
                   <div class="service-card__info-text">
                     <div class="service-card__label">Download Certificate</div>
@@ -1284,7 +351,7 @@
               <div class="service-card__service-container">
                 <div class="service-card__info-section">
                   <div class="service-card__service-logo"><img
-                      src="./resource/BookAppointmentIcon.svg" alt="Service Icon"
+                      src="{{ url_for('static', filename='resource/BookAppointmentIcon.svg') }}" alt="Service Icon"
                       style="height: inherit;"></div>
                   <div class="service-card__info-text">
                     <div class="service-card__label">24X7 Service</div>
@@ -1298,7 +365,8 @@
             <div class="service-card">
               <div class="service-card__service-container">
                 <div class="service-card__info-section">
-                  <div class="service-card__service-logo"><img src="./resource/Secure.svg" alt="Service Icon"
+                  <div class="service-card__service-logo"><img
+                      src="{{ url_for('static', filename='resource/Secure.svg') }}" alt="Service Icon"
                       style="height: inherit;"></div>
                   <div class="service-card__info-text">
                     <div class="service-card__label">Verified Land and User</div>
@@ -1314,7 +382,6 @@
       </div>
     </div>
   </div>
-</body> -->
-
+</body>
 
 </html>
