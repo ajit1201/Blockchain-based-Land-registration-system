@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Varification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ltr {
+            height: 100%;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: space-around;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header__logos {
+            padding: 15px;
+        }
+
+        .header__logo-container--center {
+            font-family: Roboto, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none solid rgb(35, 82, 124);
+            text-align: start;
+            color: rgb(35, 82, 124);
+        }
+
+        .header__bar {
+            background-color: rgba(0, 0, 0, 0);
+            background-image: linear-gradient(119.54deg, rgb(0, 0, 70), rgb(28, 181, 224));
+            background-position: 0% 0%;
+            background-repeat: repeat;
+            height: 42px;
+            width: 1520.8px;
+            transition: all 0s ease 0s;
+        }
+
+        .container {
+            margin: 50px auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loadingDiv" style="display: none;">
+        <br> <span style="font-size: 20px;">Connecting to to Wallet...</span>
+        <div id="loading" class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div id="root">
+        <div dir="ltr">
+            <div class="ltr">
+                <header class="header">
+                    <div class="header__logos">
+                        <center>
+                            <div class="header__logo-container--center">Blockchain Based Land Registration System</div>
+                        </center>
+                    </div>
+                    <div class="header__bar"></div>
+                </header>
+            </div>
+
+            <div class="container">
+                <form id="verificationForm">
+                    <input type="text" id="certificateNo" placeholder="Certificate No." required>
+                    <button type="submit">Verify</button>
+                </form>
+                <div id="verificationResult"></div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</body>
+<script>
+    // Function to create a table row with key and value columns
+function createRow(key, value) {
+  const row = document.createElement('tr');
+  const keyCell = document.createElement('td');
+  const valueCell = document.createElement('td');
+
+  keyCell.textContent = key;
+  keyCell.style.padding = '5px';
+  keyCell.style.fontSize = '18px';
+  keyCell.style.fontFamily = 'Times New Roman';
+  keyCell.style.textAlign = 'left';
+
+  valueCell.textContent = value;
+  valueCell.style.padding = '5px';
+  valueCell.style.fontSize = '18px';
+  valueCell.style.fontFamily = 'Times New Roman';
+  valueCell.style.textAlign = 'left';
+
+  row.appendChild(keyCell);
+  row.appendChild(valueCell);
+
+  return row;
+}
+
+// Function to create a table and populate it with key-value pairs
+function createTable(data) {
+  const table = document.createElement('table');
+  table.style.borderCollapse = 'collapse'; // Optional: collapse table borders
+
+  for (const key in data) {
+    const row = createRow(key, data[key]);
+    table.appendChild(row);
+  }
+
+  return table;
+}
+
+document.getElementById('verificationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const certificateNo = document.getElementById('certificateNo').value;
+  fetch(`/verifyCertificate?certificateNo=${certificateNo}`)
+    .then(response => response.json())
+    .then(data => {
+      const verificationResult = document.getElementById('verificationResult');
+      verificationResult.innerHTML = ''; // Clear previous results
+      verificationResult.appendChild(document.createElement('br'));
+                    verificationResult.appendChild(document.createElement('br'));
+                    const heading = document.createElement('h1');
+                    heading.textContent = 'Certificate Details';
+      
+      if (data.valid) {
+        const table = createTable(data);
+        verificationResult.appendChild(table);
+      } else {
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'Certificate is invalid.';
+        verificationResult.appendChild(errorMessage);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+</script>
+
+
+</html>
